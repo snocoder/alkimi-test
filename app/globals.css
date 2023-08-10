@@ -71,6 +71,10 @@ h2 {
 }
 
 /* Loader CSS */
+.loaderwrapper {
+  background-image: linear-gradient(to right, #583964, #1db778, #2c7e73);
+}
+
 .loaderwrapper section {
   animation: swipe var(--speed) linear infinite backwards;
 }
@@ -82,5 +86,16 @@ h2 {
 
   100% {
     transform: translate(-100%);
+  }
+}
+
+/* FAQ CSS */
+.questionWrapper {
+  background-image: linear-gradient(to right, #583964, #1db778, #2c7e73);
+}
+
+@media only screen and (max-width: 600px) {
+  .questionWrapper {
+    background-image: none;
   }
 }

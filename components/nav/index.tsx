@@ -48,7 +48,7 @@ const Navbar = () => {
             {/* Dummy log - not able to download actual from Figma */}
             <Image
               className="h-10 inline"
-              src="testlogo.svg"
+              src="logo lorem.svg"
               alt="Alt text"
               width="30"
               height="30"

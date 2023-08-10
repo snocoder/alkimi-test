@@ -1,3 +1,4 @@
+"use client";
 import FAQ from "@/components/faq";
 import HorizontalScrollText from "@/components/infinitescroll";
 import ListOfCards from "@/components/listofcards";
@@ -5,9 +6,21 @@ import Navbar from "@/components/nav";
 import { faqData } from "@/constants/faq";
 import { SECTION1, SECTION2 } from "@/constants/listofcards";
 import { TEXTS } from "@/constants/scrolltext";
+import Image from "next/image";
 import Link from "next/link";
+import { useState } from "react";
 
 export default function Home() {
+  const [isHovering, setIsHovering] = useState(false);
+
+  const handleMouseEnter = () => {
+    setIsHovering(true);
+  };
+
+  const handleMouseLeave = () => {
+    setIsHovering(false);
+  };
+
   return (
     <main>
       {/* Navbar component */}
@@ -23,12 +36,31 @@ export default function Home() {
         <ListOfCards data={SECTION1} />
       </div>
 
-      <div className="px-8 md:px-60 my-10 md:my-20 grid grid-cols-1 md:grid-cols-2 gap-6 mt-10">
+      <div
+        className="px-8 md:px-60 my-10 md:my-20 grid grid-cols-1 md:grid-cols-2 gap-6 mt-10"
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+      >
         <div>
           <h1 className="uppercase text-3xl md:text-6xl font-bold">About us</h1>
-          <div className="mt-5 opacity-50 flex flex-col gap-2">
-            <Link href="#">Instagram</Link>
-            <Link href="#">Facebook</Link>
+          <div className="mt-5 grid grid-flow-col gap-4">
+            <div className="opacity-50 flex flex-col gap-2">
+              <Link href="#">Instagram</Link>
+              <Link href="#">Facebook</Link>
+            </div>
+            <div
+              style={{
+                width: "200px",
+                height: "200px",
+                borderRadius: "50%",
+                objectFit: "cover",
+                overflow: "hidden",
+                display: isHovering ? "block" : "none",
+              }}
+              className="relative"
+            >
+              <Image src="/aboutus_bg.png" fill={true} alt="alt" />
+            </div>
           </div>
         </div>
         <div className="opacity-50">
