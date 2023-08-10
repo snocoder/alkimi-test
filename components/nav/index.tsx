@@ -91,7 +91,7 @@ const Navbar = () => {
             key={index}
             href={link.linkUrl}
             className={`${"flex justify-between"} ${
-              !link.active ? "opacity-50" : ""
+              !link.active ? "opacity-50 pointer-events-none" : ""
             }`}
           >
             <div>{link.name}</div>
