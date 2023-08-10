@@ -2,26 +2,85 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Global CSS */
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --background-color: #000;
+  --text-color: #fff;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  padding: 0;
+  margin: 0;
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+h1,
+h2 {
+  margin: 0;
+  padding: 0;
+}
+
+/* Navbar CSS */
+.hmcontainer {
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+}
+
+.hmcontainer .hamburger {
+  width: 30px;
+  height: 20px;
+  transition: transform 0.3s ease;
+}
+
+.hmcontainer .hamburger .line {
+  width: 100%;
+  height: 2px;
+  background-color: var(--text-color);
+}
+
+.hmcontainer .open {
+  transform: rotate(180deg);
+}
+
+.hmcontainer .open .line:nth-child(1) {
+  transform: rotate(45deg) translate(6px, 6px);
+}
+
+.hmcontainer .open .line:nth-child(2) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
+.hamburgermenu {
+  background: var(--background-color);
+  width: 100vw;
+  height: 100vh;
+  left: 0;
+  z-index: 99;
+}
+
+/* Loader CSS */
+.loaderwrapper section {
+  animation: swipe var(--speed) linear infinite backwards;
+}
+
+@keyframes swipe {
+  0% {
+    transform: translate(0);
+  }
+
+  100% {
+    transform: translate(-100%);
+  }
 }
